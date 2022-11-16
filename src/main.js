@@ -1,9 +1,12 @@
 import { createApp } from 'vue';
-import './style.css';
 import App from './App.vue';
 import router from './router';
 import store from './store';
 // 导入全局样式
 import './styles/index.scss';
+// 自定义icon
+import installIcons from '@/assets/icons/index.js';
+import 'virtual:svg-icons-register'; // 引入注册脚本
 const app = createApp(App);
+installIcons(app);
 app.use(store).use(router).mount('#app');

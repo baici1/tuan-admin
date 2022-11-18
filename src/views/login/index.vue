@@ -33,6 +33,8 @@
 import { ref } from 'vue';
 import { validatePassword } from './utils/rules';
 import { useUserStoreHook } from '@/store/modules/user.js';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const userStore = useUserStoreHook();
 // 数据源
 const loginForm = ref({
@@ -79,6 +81,8 @@ const handleLogin = () => {
       .then(() => {
         loading.value = false;
         // TODO: 登录后操作
+        console.log(router);
+        router.push('/');
       })
       .catch((err) => {
         console.log(err);

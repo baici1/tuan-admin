@@ -5,7 +5,6 @@ import store from '@/store/index';
 import { setItem, getItem } from '@/utils/storage';
 import { TOKEN } from '@/config/index';
 import md5 from 'md5';
-import router from '@/router';
 
 export const useUserStore = defineStore({
   id: 'user', // id必填，且需要唯一
@@ -21,7 +20,10 @@ export const useUserStore = defineStore({
      * @param {string} token
      */
     setToken(token) {
+      console.log('%c Line:23 🍰 token', 'color:#fca650', token);
+
       this.token = token;
+      console.log('%c Line:26 🍓 this.token', 'color:#3f7cff', this.token);
       setItem(TOKEN, token);
     },
     /**
@@ -37,10 +39,9 @@ export const useUserStore = defineStore({
           password: md5(password),
         })
           .then((data) => {
-            console.log('%c Line:40 🍫 data', 'color:#ed9ec7', data);
+            console.log('%c Line:40 🍫 data', 'color:#ed9ec7', data.token);
             this.setToken(data.token);
             // 登录后操作
-            router.push('/');
             resolve();
           })
           .catch((err) => {

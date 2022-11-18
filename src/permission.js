@@ -10,7 +10,7 @@ router.beforeEach(async (to, from, next) => {
   // 存在 token ，进入主页
   // if (store.state.user.token) {
   // 快捷访问
-  if (useUserStoreHook.token) {
+  if (useUserStoreHook().token) {
     if (to.path === '/login') {
       next('/');
     } else {

@@ -14,6 +14,7 @@ specifiers:
   eslint-plugin-vue: ^9.7.0
   husky: ^8.0.2
   md5: ^2.3.0
+  path-browserify: ^1.0.1
   pinia: ^2.0.23
   prettier: 2.7.1
   sass: ^1.56.1
@@ -29,6 +30,7 @@ dependencies:
   axios: registry.npmmirror.com/axios/1.1.3
   element-plus: registry.npmmirror.com/element-plus/2.2.21_vue@3.2.45
   md5: registry.npmmirror.com/md5/2.3.0
+  path-browserify: registry.npmmirror.com/path-browserify/1.0.1
   pinia: registry.npmmirror.com/pinia/2.0.23_vue@3.2.45
   vue: registry.npmmirror.com/vue/3.2.45
   vue-router: registry.npmmirror.com/vue-router/4.1.6_vue@3.2.45
@@ -4076,6 +4078,12 @@ packages:
     version: 0.1.1
     engines: {node: '>=0.10.0'}
     dev: true
+
+  registry.npmmirror.com/path-browserify/1.0.1:
+    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-browserify/-/path-browserify-1.0.1.tgz}
+    name: path-browserify
+    version: 1.0.1
+    dev: false
 
   registry.npmmirror.com/path-exists/4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/path-exists/-/path-exists-4.0.0.tgz}

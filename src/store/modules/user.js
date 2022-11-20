@@ -1,16 +1,19 @@
 // 处理与用户相关的信息
 import { defineStore } from 'pinia';
-import { login } from '@/api/sys.js';
+import { login, getUserInfo } from '@/api/sys.js';
 import store from '@/store/index';
-import { setItem, getItem } from '@/utils/storage';
+import { setItem, getItem, removeAllItem } from '@/utils/storage';
 import { TOKEN } from '@/config/index';
 import md5 from 'md5';
+import router from '@/router';
+import { setTimeStamp } from '@/utils/auth';
 
 export const useUserStore = defineStore({
   id: 'user', // id必填，且需要唯一
   state: () => {
     return {
       token: getItem(TOKEN) || '',
+      userInfo: {},
     };
   },
   getters: {},
@@ -39,8 +42,8 @@ export const useUserStore = defineStore({
           password: md5(password),
         })
           .then((data) => {
-            console.log('%c Line:40 🍫 data', 'color:#ed9ec7', data.token);
             this.setToken(data.token);
+            setTimeStamp(); // 保存登录时间
             // 登录后操作
             resolve();
           })
@@ -48,6 +51,31 @@ export const useUserStore = defineStore({
             reject(err);
           });
       });
+    },
+    /**
+     *
+     * @returns 用户信息
+     */
+    async getUserInfo() {
+      const res = await getUserInfo();
+      this.userInfo = res;
+      return res;
+    },
+    /**
+     *
+     * @returns true 判断用户信息是否为空
+     */
+    hasUserInfo() {
+      return JSON.stringify(this.userInfo) !== '{}';
+    },
+    /**
+     * 用户退出，删除缓存信息
+     */
+    logout() {
+      this.setToken('');
+      this.setUserInfo({});
+      removeAllItem();
+      router.push('/login');
     },
   },
 });

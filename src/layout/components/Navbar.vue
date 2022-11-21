@@ -1,6 +1,7 @@
 <template>
   <div class="navbar">
     <hamburger class="hamburger-container" />
+    <Breadcrumb class="breadcrumb-container"></Breadcrumb>
     <div class="right-menu">
       <!-- 头像 -->
       <el-dropdown class="avatar-container" trigger="click">
@@ -23,7 +24,8 @@
 
 <script setup>
 import { useUserStoreHook } from '@/store/modules/user';
-import Hamburger from './hamburger/index.vue';
+import Hamburger from './Hamburger/index.vue';
+import Breadcrumb from './Breadcrumb/index.vue';
 const userStore = useUserStoreHook();
 const logout = () => {
   userStore.logout();

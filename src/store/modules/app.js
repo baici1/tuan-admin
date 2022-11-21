@@ -4,7 +4,7 @@ export const useAppStore = defineStore({
   id: 'app', // id必填，且需要唯一
   state: () => {
     return {
-      sidebarOpened: false,
+      sidebarOpened: true,
     };
   },
   getters: {},

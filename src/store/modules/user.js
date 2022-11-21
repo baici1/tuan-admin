@@ -13,7 +13,9 @@ export const useUserStore = defineStore({
   state: () => {
     return {
       token: getItem(TOKEN) || '',
-      userInfo: {},
+      userInfo: {
+        avatar: 'http://project.yangdiy.cn/tuan.png',
+      },
     };
   },
   getters: {},

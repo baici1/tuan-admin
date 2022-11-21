@@ -1,12 +1,8 @@
 <template>
   <div class="">
     <div class="logo-container">
-      <el-avatar
-        :size="logoHeight"
-        shape="square"
-        src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png"
-      />
-      <h1 v-if="appStore.sidebarOpened" class="logo-title">imooc-admin</h1>
+      <el-avatar :size="logoHeight" shape="square" src="http://project.yangdiy.cn/tuan.png" />
+      <h1 v-if="appStore.sidebarOpened" class="logo-title">tuan-admin</h1>
     </div>
     <el-scrollbar>
       <sidebar-menu></sidebar-menu>
